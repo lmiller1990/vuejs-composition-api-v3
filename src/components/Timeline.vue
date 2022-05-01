@@ -5,7 +5,10 @@ const periods = ["Today", "This Week", "This Month"]
 <template>
   <nav class="is-primary panel">
     <span class="panel-tabs">
-      <a v-for="period of periods">
+      <a 
+        v-for="period of periods"
+        :key="period"
+      >
         {{ period }}
       </a>
     </span>
