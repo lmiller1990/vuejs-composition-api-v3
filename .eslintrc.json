@@ -1,0 +1,36 @@
+{
+  "extends": [
+    "plugin:vue/vue3-recommended",
+    "prettier"
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
+  "overrides": [
+    {
+      "files": "**/*.vue",
+      "rules": {
+        "vue/multi-word-component-names": "off",
+        "vue/html-indent": ["error", 2, {
+          "attribute": 1,
+          "baseIndent": 1,
+          "closeBracket": 0,
+          "alignAttributesVertically": true,
+          "ignores": []
+        }],
+        "vue/max-attributes-per-line": [
+          "error",
+          {
+            "singleline": {
+              "max": 1
+            },
+            "multiline": {
+              "max": 1
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
