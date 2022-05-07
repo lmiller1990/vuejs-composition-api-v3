@@ -5,18 +5,24 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "ts-node src/server/index.js"
   },
   "dependencies": {
+    "@types/cors": "2.8",
+    "@types/express": "4.17",
     "@types/luxon": "^2.3.1",
     "bulma": "^0.9.3",
+    "cors": "2.8",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-vue": "^8.7.1",
+    "express": "4.17",
     "luxon": "^2.3.1",
     "pinia": "^2.0.14",
     "prettier": "^2.6.2",
     "prettier-eslint-cli": "^5.0.1",
+    "ts-node": "^10.7.0",
     "vue": "^3.2.25"
   },
   "devDependencies": {
