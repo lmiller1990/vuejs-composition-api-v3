@@ -18,8 +18,14 @@ function selectPeriod(period: Period) {
 }
 
 const posts = computed<TimelinePost[]>(() => {
-  return [today, thisWeek, thisMonth]
-  .map(post => {
+  return postsStore.ids
+  .map(id => {
+    const post = postsStore.all.get(id)
+
+    if (!post) {
+      throw Error(`Post with id of ${id} was expected but not found.`)
+    }
+
     return {
       ...post,
       created: DateTime.fromISO(post.created)
@@ -40,8 +46,6 @@ const posts = computed<TimelinePost[]>(() => {
 </script>
 
 <template>
-  {{ postsStore.foo }}
-  <button @click="postsStore.updateFoo('bar')">Update</button>
   <nav class="is-primary panel">
     <span class="panel-tabs">
       <a
