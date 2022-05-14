@@ -3,6 +3,7 @@ import { ref, onMounted, watch, watchEffect } from "vue";
 import { TimelinePost } from "../posts";
 import { marked } from "marked"
 import highlightjs from "highlight.js"
+import debounce from "lodash/debounce"
 
 const props = defineProps<{
   post: TimelinePost;
@@ -13,8 +14,8 @@ const content = ref(props.post.markdown);
 const html = ref('')
 const contentEditable = ref<HTMLDivElement>();
 
-watch(content, (newContent) => {
-  marked.parse(newContent, {
+function parseHtml (markdown: string) {
+  marked.parse(markdown, {
     gfm: true,
     breaks: true,
     highlight: (code) => {
@@ -23,7 +24,11 @@ watch(content, (newContent) => {
   }, (err, parseResult) => {
     html.value = parseResult
   })
-}, {
+}
+
+watch(content, debounce((newContent) => {
+  parseHtml(newContent)
+}, 250), {
   immediate: true
 })
 
