@@ -1,7 +1,10 @@
 <script lang="ts" setup>
+import { Status } from '../validation';
+
 defineProps<{
   name: string
   modelValue: string
+  status: Status
 }>()
 
 const emit = defineEmits<{
@@ -20,5 +23,9 @@ function handleInput (e: Event) {
     <div class="control">
       <input type="text" :id="name" class="input" :value="modelValue" @input="handleInput">
     </div>
+
+    <p class="is-danger help" v-if="!status.valid">
+      {{ status.message }}
+    </p>
   </div>
 </template>
