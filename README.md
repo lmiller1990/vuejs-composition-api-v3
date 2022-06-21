@@ -8,3 +8,5 @@ Bulma: @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
       <div id="modal"></div>
     </div>
   </div>
+  <button class="modal-close is-large"></button>
+</div>
