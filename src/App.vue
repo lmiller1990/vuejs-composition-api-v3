@@ -3,6 +3,15 @@ import Navbar from './components/Navbar.vue';
 </script>
 
 <template>
+  <div class="modal" style="display: block; color: white;">
+    <div class="modal-background">
+      <div class="modal-content">
+        <div id="modal"></div>
+      </div>
+    </div>
+    <button class="modal-close is-large"></button>
+  </div>
+
   <div class="section">
     <div class="container">
       <Navbar />
