@@ -1,17 +1,40 @@
 import { defineStore } from "pinia";
-import { NewUser } from "../users";
+import { AuthenticatedUser, NewUser } from "../users";
+
+interface UsersState {
+  currentUser?: AuthenticatedUser;
+}
 
 export const useUsers = defineStore("users", {
+  state: (): UsersState => ({
+    currentUser: undefined,
+  }),
+
   actions: {
-    createUser (newUser: NewUser) {
-      const body = JSON.stringify(newUser)
-      return window.fetch("http://localhost:8000/users", {
+    setAuthenticatedUser(user: AuthenticatedUser) {
+      this.currentUser = user;
+    },
+
+    async login(newUser: NewUser) {
+      const body = JSON.stringify({ id: "abc" });
+      return await window.fetch("/api/auth", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body
-      })
-    }
-  }
-})
+        body,
+      });
+    },
+
+    async createUser(newUser: NewUser) {
+      const body = JSON.stringify(newUser);
+      return await window.fetch("/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      });
+    },
+  },
+});
