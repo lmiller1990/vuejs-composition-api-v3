@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import PostWriter from '../components/PostWriter.vue';
 import { useRoute } from 'vue-router';
 import { usePosts } from '../stores/posts';
 
@@ -14,15 +15,6 @@ if (!post) {
 </script>
 
 <template>
-  <div class="columns">
-    <div class="column"></div>
-    <div class="column is-two-thirds">
-      <RouterLink 
-        :to="`/posts/${post.id}/edit`"
-        class="is-link button is-rounded">Edit Post</RouterLink>
-      <h1>{{ post.title }}</h1>
-      <div v-html="post.html" />
-    </div>
-    <div class="column"></div>
-  </div>
+  Edit Post
+  <PostWriter :post="post" />
 </template>
