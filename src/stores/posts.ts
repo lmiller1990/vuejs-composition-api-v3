@@ -41,8 +41,8 @@ export const usePosts = defineStore("posts", {
       this.all = all
     },
 
-    createPost (post: TimelinePost) {
-      const body = JSON.stringify({ ...post, created: post.created.toISO() })
+    createPost (post: Post) {
+      const body = JSON.stringify(post)
       return window.fetch("/api/posts", {
         method: "POST",
         headers: {
