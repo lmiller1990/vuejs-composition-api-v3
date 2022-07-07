@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import _ from "lodash";
 import { DateTime } from "luxon"
 import { useRouter } from "vue-router";
 import PostWriter from '../components/PostWriter.vue';
