@@ -1,6 +1,8 @@
 ## Vue.js: The Composition API (v3)
 
-Welcome to the third recording of my Vue.js course! 
+Welcome to the third recording of my Vue.js course! Get it here [on Udemy](https://www.udemy.com/course/vuejs-3-the-composition-api/?referralCode=0C911BD2BD6C57007F36). 
+
+This is a information dense course where we build a full blogging application, including a real back-end with authentication and authorization. We go deep into Vue's reactivity system, and create some complex components.
 
 ## Content
 
