@@ -6,6 +6,7 @@ Welcome to the third recording of my Vue.js course!
 
 Bulma: @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
+```html
 <div class="modal" style="display: block; color: white;">
   <div class="modal-background">
     <div class="modal-content">
@@ -14,3 +15,4 @@ Bulma: @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
   </div>
   <button class="modal-close is-large"></button>
 </div>
+```
