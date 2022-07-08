@@ -1,7 +1,14 @@
-Links:
+## Vue.js: The Composition API (v3)
 
-Bulma: @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+Welcome to the third recording of my Vue.js course! 
 
+## Useful Links and Snippets
+
+Bulma: `@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";`
+
+Modal
+
+```html
 <div class="modal" style="display: block; color: white;">
   <div class="modal-background">
     <div class="modal-content">
@@ -10,15 +17,4 @@ Bulma: @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
   </div>
   <button class="modal-close is-large"></button>
 </div>
-
-## Improvements
-
-1. Edit post authorization bug
-2. Make it look good! 
-  - Bulma: https://bulma.io
-  - Tailwind: https://tailwindcss.com
-3. Features:
-  - Comments?
-  - Read database? Postgres, MySql
-4. VueUse: https://vueuse.org
-5. Testing! Next module.
+```
