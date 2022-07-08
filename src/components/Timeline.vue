@@ -9,6 +9,11 @@ await postsStore.fetchPosts()
 </script>
 
 <template>
+  <div class="message is-primary is-marginless">
+    <div class="message-header">
+      <div>Posts for {{ postsStore.selectedPeriod.toLowerCase() }}</div>
+    </div>
+  </div>
   <nav class="is-primary panel">
     <span class="panel-tabs">
       <a
