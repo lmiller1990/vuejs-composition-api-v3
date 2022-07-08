@@ -2,6 +2,25 @@
 
 Welcome to the third recording of my Vue.js course! 
 
+## Content
+
+### Vue.js
+- `<script setup>`
+- Vite + ES modules
+- Vuex -> Pinia (official state management solution)
+- Composables
+- Reusable components
+
+### General Skills
+- Design Patterns, modular code
+- TypeScript for type safety
+- *real* authentication and authorization using jsonwebtoken (JWT)
+- Basic server with Node.js + Express
+
+### Bonus!
+- Deploy to production
+- Testing module (coming soon)
+
 ## Useful Links and Snippets
 
 Bulma: `@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";`
