@@ -2,15 +2,20 @@
 
 The **THIRD** recording of this course! Lots of improvments:
 
+### Vue.js
 - `<script setup>`
 - Vite + ES modules
 - Vuex -> Pinia (official state management solution)
 - Composables
-- Design Patterns, modular code
 - Reusable components
+
+### General Skills
+- Design Patterns, modular code
 - TypeScript for type safety
 - *real* authentication and authorization using jsonwebtoken (JWT)
 - Basic server with Node.js + Express
+
+### Bonus!
 - Deploy to production
 - Testing module
 

@@ -65,5 +65,15 @@ export async function readPosts() {
     html: await toHtml(typesafeMd),
   };
 
-  return [typesafe, reactivity, sourceMaps, pipeline]
+  const introMd = load("intro.md");
+
+  const intro: Post = {
+    ...today,
+    id: "14",
+    title: "Course Introduction 🎉",
+    markdown: introMd,
+    html: await toHtml(introMd),
+  };
+
+  return [intro, typesafe, reactivity, sourceMaps, pipeline]
 }

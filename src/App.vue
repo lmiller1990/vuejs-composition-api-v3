@@ -51,4 +51,8 @@ pre {
 p {
   margin: 10px 0 !important;
 }
+
+div[contenteditable] {
+  white-space: pre;
+}
 </style>
