@@ -8,6 +8,7 @@ defineProps<{
 
 <template>
   <RouterLink
+    role="link"
     :to="`/posts/${post.id}`"
     class="panel-block is-flex is-flex-direction-column is-align-items-flex-start"> 
     <a>{{ post.title }}</a>

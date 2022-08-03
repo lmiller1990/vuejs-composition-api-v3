@@ -36,7 +36,6 @@ export const usePosts = defineStore("posts", {
         ids.push(post.id)
         all.set(post.id, post)
       } 
-
       this.ids = ids
       this.all = all
     },
