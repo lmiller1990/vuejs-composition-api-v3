@@ -1,36 +1,47 @@
 /// <reference types="cypress" />
 import FormInput from "../FormInput.vue"
 import { mount } from "cypress/vue"
+import { computed, defineComponent, ref } from "vue"
+import { Status } from "../../validation"
 
 describe("FormInput", () => {
-  it("does not render an error when valid", () => {
-    mount(FormInput, {
-      props: {
-        name: "username",
-        modelValue: "lachlan",
-        type: "text",
-        status: {
-          valid: true
+  it.only("responds to input", () => {
+    const Parent = defineComponent({
+      setup() {
+        const username = ref('lachlan')
+        const status = computed<Status>(() => {
+          const valid = username.value.length > 5
+          return {
+            valid,
+            message: valid ? undefined : 'It is too short'
+          }
+        })
+        return {
+          username,
+          status
         }
-      }
+      },
+      components: {
+        FormInput
+      },
+      template: `
+        <FormInput
+          name="username"
+          v-model="username"
+          :status="status"
+          type="text
+        />
+      `
     })
 
-    cy.get("[role='alert']").should("not.exist")
-  })
+    mount(Parent)
 
-  it.only("does render an error when invalid", () => {
-    mount(FormInput, {
-      props: {
-        name: "username",
-        modelValue: "lachlan",
-        type: "text",
-        status: {
-          valid: false,
-          message: 'Invalid'
-        }
-      }
-    })
+    cy.get('label').contains('username').click()
+    cy.get('input').should('be.focused')
 
-    cy.get("[role='alert']").should('contain.text', 'Invalid')
+    cy.get('[role="alert"]').should('not.exist')
+    cy.get('input').clear()
+
+    cy.get('[role="alert"]').should('exist').should('contain.text', 'It is too short')
   })
 })
