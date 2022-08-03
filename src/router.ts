@@ -5,8 +5,8 @@ import NewPost from "./views/NewPost.vue"
 import ShowPost from "./views/ShowPost.vue"
 import EditPost from "./views/EditPost.vue"
 
-export const router = createRouter({
-  history: createWebHistory(),
+export const createNewRouter = (history = createWebHistory()) => createRouter({
+  history,
   routes: [
     {
       path: "/",
@@ -35,3 +35,5 @@ export const router = createRouter({
     }
   ]
 })
+
+export const router = createNewRouter()

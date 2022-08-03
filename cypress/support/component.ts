@@ -19,7 +19,7 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-import { mount } from 'cypress/vue'
+import { mount as _mount } from 'cypress/vue'
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
@@ -28,14 +28,38 @@ import { mount } from 'cypress/vue'
 declare global {
   namespace Cypress {
     interface Chainable {
-      mount: typeof mount
+      mount: typeof _mount
     }
   }
 }
 
-Cypress.Commands.add('mount', mount)
+Cypress.Commands.add('mount', _mount)
+
+import { createPinia, Pinia, setActivePinia } from 'pinia'
+import { createNewRouter } from '../../src/router'
+
+
+let pinia: Pinia = createPinia()
+
+beforeEach(() => {
+  pinia = createPinia()
+  setActivePinia(pinia)
+})
+
+export function mount (Comp: any) {
+  return _mount(Comp, {
+    global: {
+      plugins: [
+        pinia,
+        createNewRouter(createWebHashHistory())
+      ]
+    }
+  })
+}
 
 import "highlight.js/styles/atom-one-dark.css";
+import { create } from 'cypress/types/lodash'
+import { createWebHashHistory } from 'vue-router'
 
 // Example use:
 // cy.mount(MyComponent)
