@@ -22,7 +22,7 @@ describe("Timeline", () => {
       ])
     }).as('posts')
 
-    cy.mount(Parent, {})
+    cy.mount(Parent)
 
     cy.wait('@posts')
 
