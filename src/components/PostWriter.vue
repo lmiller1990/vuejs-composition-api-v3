@@ -98,6 +98,7 @@ async function handleClick() {
   <div class="columns">
     <div class="column">
       <div
+        data-cy="editor"
         ref="contentEditable"
         contenteditable
         @input="handleInput" />

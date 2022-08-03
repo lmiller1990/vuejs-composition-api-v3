@@ -29,8 +29,9 @@ beforeEach(() => {
   setActivePinia(pinia)
 })
 
-export function mount (Comp: any) {
+export function mount (Comp: any, options: any) {
   return _mount(Comp, {
+    ...options,
     global: {
       plugins: [
         pinia,

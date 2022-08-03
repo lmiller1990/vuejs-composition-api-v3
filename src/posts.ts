@@ -22,6 +22,13 @@ export const today: Post = {
   html: '',
 }
 
+export const createPost = (created: string): Post => {
+  return {
+    ...today,
+    created
+  }
+}
+
 export const thisWeek: Post = {
   id: "2",
   authorId: "-1",
