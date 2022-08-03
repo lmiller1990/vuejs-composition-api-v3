@@ -1,10 +1,9 @@
 /// <reference types="cypress" />
 import SigninForm from "../SigninForm.vue"
-import { mount } from "../../../cypress/support/component"
 
 describe("SigninForm", () => {
   it("renders", () => {
-    mount(SigninForm, {})
+    cy.mount(SigninForm, {})
 
     cy.get('#Username').as('username').clear()
     cy.get('#Password').as('password').clear()

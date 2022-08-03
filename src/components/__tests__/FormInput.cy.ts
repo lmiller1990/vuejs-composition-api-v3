@@ -1,6 +1,4 @@
-/// <reference types="cypress" />
 import FormInput from "../FormInput.vue"
-import { mount } from "../../../cypress/support/component"
 import { computed, defineComponent, ref } from "vue"
 import { Status } from "../../validation"
 
@@ -34,7 +32,7 @@ describe("FormInput", () => {
       `
     })
 
-    mount(Parent)
+    cy.mount(Parent)
 
     cy.get('label').contains('username').click()
     cy.get('input').should('be.focused')

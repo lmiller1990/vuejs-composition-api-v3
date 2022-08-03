@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 import PostWriter from "../PostWriter.vue"
-import { mount } from "../../../cypress/support/component"
 import { Post, createPost } from "../../posts"
 import { useUsers } from "../../stores/users"
 import { defineComponent } from "vue"
@@ -28,7 +27,7 @@ describe("PostWriter", () => {
       `,
     })
 
-    mount(Parent, {})
+    cy.mount(Parent, {})
 
     cy.get('[data-cy="editor"]')
       .clear()

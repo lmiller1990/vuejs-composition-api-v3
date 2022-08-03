@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 import Timeline from "../Timeline.vue"
-import { mount } from "../../../cypress/support/component"
 import { thisMonth, thisWeek, today } from "../../posts"
 import { defineComponent } from "vue"
 
@@ -23,7 +22,7 @@ describe("Timeline", () => {
       ])
     }).as('posts')
 
-    mount(Parent, {})
+    cy.mount(Parent, {})
 
     cy.wait('@posts')
 

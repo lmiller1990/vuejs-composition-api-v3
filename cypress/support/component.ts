@@ -29,17 +29,19 @@ beforeEach(() => {
   setActivePinia(pinia)
 })
 
+Cypress.Commands.add('mount', _mount)
+
 type MountingOptions<T> = Parameters<typeof _mount<T>>[1]
 
 declare global {
   namespace Cypress {
     interface Chainable {
-      mount: typeof _mount;
+      mount: typeof mount;
     }
   }
 }
 
-export function mount<T>(comp: any, payload: MountingOptions<T> = {}) {
+function mount<T>(comp: any, payload: MountingOptions<T> = {}) {
   const _props: T = {
     ...payload.props,
   } as any;
