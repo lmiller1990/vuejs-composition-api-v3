@@ -15,29 +15,12 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
-
 import { mount as _mount } from 'cypress/vue'
-
-// Augment the Cypress namespace to include type definitions for
-// your custom command.
-// Alternatively, can be defined in cypress/support/component.d.ts
-// with a <reference path="./component" /> at the top of your spec.
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      mount: typeof _mount
-    }
-  }
-}
-
-Cypress.Commands.add('mount', _mount)
 
 import { createPinia, Pinia, setActivePinia } from 'pinia'
 import { createNewRouter } from '../../src/router'
-
+import "highlight.js/styles/atom-one-dark.css";
+import { createWebHashHistory } from 'vue-router'
 
 let pinia: Pinia = createPinia()
 
@@ -56,10 +39,3 @@ export function mount (Comp: any) {
     }
   })
 }
-
-import "highlight.js/styles/atom-one-dark.css";
-import { create } from 'cypress/types/lodash'
-import { createWebHashHistory } from 'vue-router'
-
-// Example use:
-// cy.mount(MyComponent)
