@@ -29,7 +29,7 @@ beforeEach(() => {
   setActivePinia(pinia)
 })
 
-Cypress.Commands.add('mount', _mount)
+Cypress.Commands.add('mount', mount)
 
 type MountingOptions<T> = Parameters<typeof _mount<T>>[1]
 
