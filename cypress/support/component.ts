@@ -29,14 +29,29 @@ beforeEach(() => {
   setActivePinia(pinia)
 })
 
-export function mount (Comp: any, options: any) {
-  return _mount(Comp, {
-    ...options,
+type MountingOptions<T> = Parameters<typeof _mount<T>>[1]
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      mount: typeof _mount;
+    }
+  }
+}
+
+export function mount<T>(comp: any, payload: MountingOptions<T> = {}) {
+  const _props: T = {
+    ...payload.props,
+  } as any;
+
+  return _mount(comp as any, {
+    ...payload,
+    props: _props,
     global: {
       plugins: [
         pinia,
         createNewRouter(createWebHashHistory())
       ]
     }
-  })
+  });
 }
